@@ -9,7 +9,8 @@ DATA_FILE = 'data.json'
 default_config = {
     'reset_time': '00:00',
     'dailies': [
-        "Sample Daily"
+        "Sample Daily",
+        "Sample Daily 2"
     ]
 }
 
