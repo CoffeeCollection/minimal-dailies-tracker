@@ -1,11 +1,11 @@
 # minimal-dailies-tracker
 A simple checklist for daily tasks with a daily reset written in Python.
 
-Features:
- -Helps you keep track of those dailies
- -Resets at designated time each day
+## Features:
+ * Helps you keep track of those dailies
+ * Resets at designated time each day
 
-Setup:
+## Setup:
  After the config.json is generated on initial startup, it will look like this:
 
 ```json
@@ -18,5 +18,5 @@ Setup:
 }
 ```
 
- `reset_time`: Set any time in HH:MM format for dailies to reset after this time.
- `dailies`: An array of strings of any length, add the tasks you want to track daily.
+ * `reset_time`: Set any time in HH:MM format for dailies to reset after this time.
+ * `dailies`: An array of strings of any length, add the tasks you want to track daily.
