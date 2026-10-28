@@ -104,9 +104,11 @@ root.minsize(200, 200)
 
 frame = tk.Frame(root, padx=10, pady=10)
 frame.pack(fill='both', expand=True)
+frame.columnconfigure(0, weight=1) 
 
-for daily in dailies:
+for i, daily in enumerate(dailies):
     daily_name = daily['name']
+    daily_reset = daily.get('reset_time', default_reset_time_str)
     if daily_name not in data['states']:
         data['states'][daily_name] = False
     daily_var = tk.BooleanVar(value=data['states'][daily_name])
@@ -118,16 +120,14 @@ for daily in dailies:
         font=('Arial', 11),
         command=lambda d=daily_name, v=daily_var: update_daily(d,v)
     )
+    chk.grid(row=i, column=0, sticky='w', pady=5)
 
-    chk.pack(anchor='w', pady=5)
-
-'''
-reset_label = tk.Label(
-    frame,
-    text=f'Global Reset: {reset_time}',
-    font=('Arial', 9),
-)
-reset_label.pack(anchor="w", pady=(20, 0))
-'''
+    time_label = tk.Label(
+        frame,
+        text=daily_reset,
+        font=('Arial', 9),
+        fg='gray'
+    )
+    time_label.grid(row=i, column=1, sticky='e', pady=5, padx=(0, 0))
 
 root.mainloop()
