@@ -88,7 +88,6 @@ for daily in dailies:
     last_default_reset = today_default_reset if now >= today_default_reset else today_default_reset - timedelta(days=1)
     if last_updated <= last_default_reset:
         valid_tasks = {daily['name'] for daily in dailies}
-        print(valid_tasks)
         data['states'] = {k: v for k, v in data['states'].items() if k in valid_tasks}
 
 #Funcs
