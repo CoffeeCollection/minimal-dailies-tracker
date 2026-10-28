@@ -84,11 +84,11 @@ for daily in dailies:
         data['states'][daily_name] = False
 
 #Orphaned tasks cleanup on global default reset
-    today_default_reset = now.replace(hour=default_reset_time.hour, minute=default_reset_time.minute, second=0)
-    last_default_reset = today_default_reset if now >= today_default_reset else today_default_reset - timedelta(days=1)
-    if last_updated <= last_default_reset:
-        valid_tasks = {daily['name'] for daily in dailies}
-        data['states'] = {k: v for k, v in data['states'].items() if k in valid_tasks}
+today_default_reset = now.replace(hour=default_reset_time.hour, minute=default_reset_time.minute, second=0)
+last_default_reset = today_default_reset if now >= today_default_reset else today_default_reset - timedelta(days=1)
+if last_updated <= last_default_reset:
+    valid_tasks = {daily['name'] for daily in dailies}
+    data['states'] = {k: v for k, v in data['states'].items() if k in valid_tasks}
 
 #Funcs
 def update_daily(daily_name, var):
